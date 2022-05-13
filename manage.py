@@ -1,14 +1,14 @@
 from app import create_app
-# from flask_script import Manager,Server
+from flask_script import Manager,Server
 # from app.models import User,Blog
 # from flask_migrate import Migrate, MigrateCommand
 
 # Creating app instance
-app = create_app()
+app = create_app('development')
 
 
-# manager = Manager(app)
-# manager.add_command('server',Server)
+manager = Manager(app)
+manager.add_command('server',Server)
 
 # migrate = Migrate(app,db)
 # manager.add_command('db',MigrateCommand)
@@ -27,4 +27,4 @@ app = create_app()
 #     return dict(app = app, db = db,User = User, Pitch = Pitch,Comment=Comment)
 
 if __name__ == '__main__':
-    manager.run()
+    manager.run(debug=True)
