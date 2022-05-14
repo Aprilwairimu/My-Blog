@@ -5,7 +5,7 @@ from wtforms.validators import InputRequired
 class BlogForm(FlaskForm):
 	title = StringField('Title', validators=[InputRequired()])
 	description = TextAreaField("What would you like to Blog about ?",validators=[InputRequired()])
-	category = RadioField('Label', choices=[ ('Fashion blogs','Fashion blogs'), ('Travel blogs','Travel blogs'),('Food blogs','Food blogs')],validators=[InputRequired()])
+	category = RadioField('Label', choices=[ ('Fashionblogs','Fashionblogs'), ('Travelblogs','Travelblogs'),('Foodblogs','Foodblogs')],validators=[InputRequired()])
 	submit = SubmitField('Submit')
 
 class ReviewForm(FlaskForm):

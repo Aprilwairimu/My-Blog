@@ -1,6 +1,7 @@
-from flask_login import login_required
+from flask_login import login_required,current_user
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
+from ..models import Blog, User,Comment
 from flask.views import View,MethodView
 from .forms import UpdateProfile
 
@@ -9,32 +10,32 @@ def home():
     return render_template('home.html')
 
 
-# @main.route('/', methods = ['GET','POST'])
-# def index():
-#     form = BlogForm()
-#     if form.validate_on_submit():
-#         description = form.description.data
-#         title = form.title.data
-#         owner_id = current_user
-#         category = form.category.data
-#         print(current_user._get_current_object().id)
-#         new_blog = Blog(owner_id =current_user._get_current_object().id, title = title,description=description,category=category)
-#         db.session.add(new_blog)
-#         db.session.commit()
+@main.route('/', methods = ['GET','POST'])
+def index():
+    form = BlogForm()
+    if form.validate_on_submit():
+        description = form.description.data
+        title = form.title.data
+        owner_id = current_user
+        category = form.category.data
+        print(current_user._get_current_object().id)
+        new_blog = Blog(owner_id =current_user._get_current_object().id, title = title,description=description,category=category)
+        db.session.add(new_blog)
+        db.session.commit()
 
-#     '''
-#     View root page function that returns the index page and its data
-#     '''
-#     blog = Blog.query.filter_by().first()
-#     title = 'Home'
-#     Fashion blogs = Blog.query.filter_by(category="Fashion blogs")
-#     Travel blogs = Blog.query.filter_by(category = "Travel blogs")
-#     Food blogs  = Blog.query.filter_by(category = "Food blogs")
+    '''
+    View root page function that returns the index page and its data
+    '''
+    blog = Blog.query.filter_by().first()
+    title = 'Home'
+    Fashionblogs = Blog.query.filter_by(category= "Fashion blogs")
+    Travelblogs = Blog.query.filter_by(category = "Travel blogs")
+    Foodblogs  = Blog.query.filter_by(category = "Food blogs")
    
     
 
-#     return render_template('home.html', title = title, blog = blog, Fashion blogs = Fashion blogs,Travel blogs= Travel blogs,Food blogs = Food blogs
-#    ,form = form)
+    return render_template('home.html', title = title, blog = blog, Fashionblogs = Fashionblogs,Travelblogs= Travelblogs,Foodblogs = Foodblogs
+   ,BlogForm = form)
     
 
 

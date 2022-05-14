@@ -33,3 +33,39 @@ def verify_password(self,password):
 
 def __repr__(self):
     return f'{self.username}'
+
+
+    
+
+class Blog(db.Model):
+    '''
+    '''
+    __tablename__ = 'bloges'
+
+    id = db.Column(db.Integer, primary_key = True)
+    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    description = db.Column(db.String(), index = True)
+    title = db.Column(db.String())
+    category = db.Column(db.String(255), nullable=False)
+    comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
+
+    
+    @classmethod
+    def get_blogs(cls, id):
+        blogs = Blog.query.order_by(blog_id=id).desc().all()
+        return blogs
+
+    def __repr__(self):
+        return f'Pitch {self.description}' 
+
+class Comment(db.Model):
+    __tablename__='comments'
+    
+    id = db.Column(db.Integer,primary_key=True)
+    pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable= False)
+    description = db.Column(db.Text)
+
+    
+    def __repr__(self):
+        return f"Comment : id: {self.id} comment: {self.description}"

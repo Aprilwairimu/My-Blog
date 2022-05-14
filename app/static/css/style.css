@@ -6,13 +6,13 @@
 }
 /* register.html */
 .sign {
-    background: linear-gradient(180deg, rgba(18, 56, 31, 0.66) 0%, rgba(200, 131, 63, 0.429) 100%);
+    background: linear-gradient(180deg, rgba(224, 168, 120, 0.66) 0%, rgba(141, 77, 150, 0.429) 100%);
     height: 100vh;
 }
 
 /* .login.html */
 .login {
-    background: linear-gradient(180deg, rgba(18, 56, 31, 0.66) 0%, rgba(200, 131, 63, 0.429) 100%);
+    background: linear-gradient(180deg, rgba(224, 168, 120, 0.66) 0%, rgba(141, 77, 150, 0.429) 100%);
     height: 100vh;
 }
 /* navbar.html */
@@ -41,9 +41,6 @@ navbarA {
 .text{
     font-size: 60px;
     margin-top: 20%;
-   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.shorttext{
-    font-size: 20px;
-    font-family: Cambria,Cochin,Georgia,Times,'Times New Roman',serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
 }
