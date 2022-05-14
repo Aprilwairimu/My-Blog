@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+{% import 'macros.html' as macro %}
+{% import'bootstrap/wtf.html' as wtf%}
+{% block title%} HOME {% endblock%} {% block
+styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}" />
+
+{% endblock %} 
+{% block content %}
+<section id="land" class="p-5 home">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-md">
+                <img src="" class="img-fluid" alt=""></div>
+            </div>
+            <div class="col-md p-5">
+                <h2 class="text">Hello , i'm <span class="text-primary">April</span> <br>
+                Welcome to my blog</h2>
+                <p class="lead" shorttext>Don't miss out on the latest stories of the year
+                </p>
+                <!-- <a href="" class="btn btn-light mt-3"></a> -->
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock%}
