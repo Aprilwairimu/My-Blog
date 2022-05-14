@@ -6,3 +6,4 @@ from flask.views import View,MethodView
 @main.route('/', methods = ['GET','POST'])
 def home():
     return render_template('home.html')
+
