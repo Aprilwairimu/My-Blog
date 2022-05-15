@@ -4,6 +4,7 @@ from . import main
 from ..models import Blog, User,Comment
 from flask.views import View,MethodView
 from .forms import UpdateProfile
+from .forms import BlogForm, CommentForm
 
 @main.route('/', methods = ['GET','POST'])
 def home():
