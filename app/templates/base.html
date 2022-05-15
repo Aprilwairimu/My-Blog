@@ -21,13 +21,13 @@
         <div class="class1" id="navbar">
             <div class="items">
                 
-                <a class="item" id=" logout" href="{{url_for('auth.logout')}}">Log Out</a>
-                
-                <a class="item" id=" home" href="/">Home</a>
+                <a class="item" id=" home" href="/"><i class="fa-solid fa-house-chimney fa-2x"></i></a>
                 
                 <a class="item" id=" login" href="{{url_for('auth.login')}}">Login</a>
                 <a class="item" id=" signUp" href="{{url_for('auth.register')}}">sign Up</a>
-                
+                <a class="item" id=" write" href="{{url_for('main.write')}}">write blog</a>
+                <a class="item" id="blogs" href="{{url_for('main.blogs')}}">blogs</a>
+                <a class="item" id=" logout" href="{{url_for('auth.logout')}}">Log Out</a>
             </div>
         </div>
     </nav>

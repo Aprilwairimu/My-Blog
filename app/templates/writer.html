@@ -1,0 +1,17 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Title</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter blog title">
+</div>
+<div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">blog</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="write a blog">
+</div>
+<div>
+    <button type="button" class="btn btn-primary">Submit</button>
+</div>
+{% endblock %}

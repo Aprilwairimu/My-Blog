@@ -105,3 +105,15 @@ def update_profile(uname):
         return redirect(url_for('.profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)
+
+@main.route('/blogs')
+def blogs():
+    form=CommentForm()
+
+    return render_template("blogs.html",form=form)
+
+@main.route('/write')
+def write():
+    form=BlogForm()
+
+    return render_template("writer.html",form=form)

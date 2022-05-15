@@ -3,9 +3,8 @@ from wtforms import StringField,TextAreaField,SubmitField,RadioField,PasswordFie
 from wtforms.validators import InputRequired
 
 class BlogForm(FlaskForm):
-	title = StringField('Title', validators=[InputRequired()])
-	description = TextAreaField("What would you like to Blog about ?",validators=[InputRequired()])
-	category = RadioField('Label', choices=[ ('Fashionblogs','Fashionblogs'), ('Travelblogs','Travelblogs'),('Foodblogs','Foodblogs')],validators=[InputRequired()])
+	title = StringField('Title')
+	description = TextAreaField("What would you like to Blog about ?")
 	submit = SubmitField('Submit')
 
 class ReviewForm(FlaskForm):

@@ -14,11 +14,12 @@ styles%} {{ super() }}
                 <img src="" class="img-fluid" alt=""></div>
             </div>
             <div class="col-md p-5">
-                <h2 class="text">Hello , i'm <span class="text-primary">April</span> <br>
-                Welcome to my blog</h2>
+                <h2 class="text">Hello ,  <br>
+                Welcome to <span class="text-primary">MY BLOG</span></h2>
                 <p class="lead" shorttext>Don't miss out on the latest top most Blogs quotes of the year
                 </p>
-                
+                <button type="button" class="btn btn-outline-success" align="center"><a href="{{url_for('main.write')}}">write a blog</a></button>   
+                <button type="button" class="btn btn-outline-success" align="center"><a href="{{url_for('main.blogs')}}">view blog</a></button>
             </div>
 
                
