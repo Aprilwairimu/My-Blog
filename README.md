@@ -1,19 +1,18 @@
-## PITCH APP
+## PERSONAL BLOG
 
 ## PROJECT PREVIEW
 
-![ PITCH APP](./app/static/images/pitch%20screenshot.png)
+![ PERSONAL BLOG](./app/static/images/pitch%20screenshot.png)
 
 
 ### PROJECT DESCRIPTION
-Pitch App is an application that allows users to use that one minute wisely. 
-The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
+This is a  Personal Blog website application where you can create and share your opinions and other users can read and comment on them. Additionally, add a feature that displays random quotes to inspire your users. 
 
 
 ### :pushpin:PROJECT SETUP INSTRUCTIONS
 
 - Open terminal {Ctrl +Alt + T}
-- git clone https://github.com/Aprilwairimu/Pitch-App
+- git clone https://github.com/Aprilwairimu/My-Blog.git
 - cd pitch App
 - code . or atom . depending on your text editor
 
