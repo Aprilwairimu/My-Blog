@@ -2,7 +2,7 @@
 
 ## PROJECT PREVIEW
 
-![PERSONAL BLOG](./app/static/images/pitch%20screenshot.png)
+![PERSONAL BLOG](./app/static/images/Blog%20screenshot.png)
 
 
 ### PROJECT DESCRIPTION
