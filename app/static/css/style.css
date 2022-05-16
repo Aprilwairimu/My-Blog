@@ -48,10 +48,31 @@ navbarA {
 .blog{
     background: linear-gradient(180deg, rgba(224, 168, 120, 0.66) 0%, rgba(141, 77, 150, 0.429) 100%);
     height: 100vh;
-    
+}
+.displayblog {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(224, 168, 120, 0.66) 0%, rgba(141, 77, 150, 0.429) 100%);
+   
 }
 /* writer.html */
-/* .writer{
+.writer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 30px;
+    margin: auto; 
+    font-size: 30px;
+    align-self: center;
+}
+.blogbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 40px;
+}
+.writer01{
     background: linear-gradient(180deg, rgba(224, 168, 120, 0.66) 0%, rgba(141, 77, 150, 0.429) 100%);
     height: 100vh;
-} */
+}

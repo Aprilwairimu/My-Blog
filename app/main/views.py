@@ -18,9 +18,8 @@ def index():
         description = form.description.data
         title = form.title.data
         owner_id = current_user
-        category = form.category.data
         print(current_user._get_current_object().id)
-        new_blog = Blog(owner_id =current_user._get_current_object().id, title = title,description=description,category=category)
+        new_blog = Blog(owner_id =current_user._get_current_object().id, title = title,description=description)
         db.session.add(new_blog)
         db.session.commit()
 
@@ -29,13 +28,8 @@ def index():
     '''
     blog = Blog.query.filter_by().first()
     title = 'Home'
-    Fashionblogs = Blog.query.filter_by(category= "Fashion blogs")
-    Travelblogs = Blog.query.filter_by(category = "Travel blogs")
-    Foodblogs  = Blog.query.filter_by(category = "Food blogs")
    
-    
-
-    return render_template('home.html', title = title, blog = blog, Fashionblogs = Fashionblogs,Travelblogs= Travelblogs,Foodblogs = Foodblogs
+    return render_template('home.html', title = title, blog = blog
    ,BlogForm = form)
     
 
@@ -49,9 +43,8 @@ def new_blog():
         description = form.description.data
         title = form.title.data
         owner_id = current_user
-        category = form.category.data
         print(current_user._get_current_object().id)
-        new_pitch = Pitch(owner_id =current_user._get_current_object().id, title = title,description=description,category=category)
+        new_pitch = Pitch(owner_id =current_user._get_current_object().id, title = title,description=description)
         db.session.add(new_blog)
         db.session.commit()
         
@@ -65,8 +58,8 @@ def new_blog():
 @main.route('/comment/new/<int:pitch_id>', methods = ['GET','POST'])
 @login_required
 def new_comment(blog_id):
-    form = CommentForm()
-    blog=Blog.query.get(pitch_id)
+    form = BlogForm()
+    blog=Blog.query.get(blog_id)
     if form.validate_on_submit():
         description = form.description.data
 
@@ -80,10 +73,17 @@ def new_comment(blog_id):
     all_comments = Comment.query.filter_by(blog_id = blog_id).all()
     return render_template('comments.html', form = form, comment = all_comments, blog = blog )
 
+@main.route('/blogs')
+def blogs():
+    form=CommentForm()
 
+    return render_template("blogs.html",form=form)
 
+@main.route('/write')
+def write():
+    form=BlogForm()
 
-
+    return render_template("writer.html",form=form)
 
 
 
@@ -106,14 +106,3 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form =form)
 
-@main.route('/blogs')
-def blogs():
-    form=CommentForm()
-
-    return render_template("blogs.html",form=form)
-
-@main.route('/write')
-def write():
-    form=BlogForm()
-
-    return render_template("writer.html",form=form)

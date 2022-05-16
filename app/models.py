@@ -18,21 +18,21 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
     pass_secure = db.Column(db.String(255))
+    comments = db.relationship('Comment',backref='user',lazy='dynamic')
     
-    
-@property
-def password(self):
-    raise AttributeError('You cannot read the password attribute')
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
 
-@password.setter
-def password(self, password):
-    self.pass_secure = generate_password_hash(password)
+    @password.setter
+    def password(self, password):
+        self.pass_secure = generate_password_hash(password)
 
-def verify_password(self,password):
-    return check_password_hash(self.pass_secure,password)
+    def verify_password(self,password):
+        return check_password_hash(self.pass_secure,password)
 
-def __repr__(self):
-    return f'{self.username}'
+    def __repr__(self):
+        return f'{self.username}'
 
 
     
@@ -40,29 +40,28 @@ def __repr__(self):
 class Blog(db.Model):
     '''
     '''
-    __tablename__ = 'bloges'
+    __tablename__ = 'blogs'
 
     id = db.Column(db.Integer, primary_key = True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
     description = db.Column(db.String(), index = True)
     title = db.Column(db.String())
-    category = db.Column(db.String(255), nullable=False)
-    comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
-
+    comments = db.relationship('Comment',backref='blog',lazy='dynamic')
     
+
     @classmethod
     def get_blogs(cls, id):
         blogs = Blog.query.order_by(blog_id=id).desc().all()
         return blogs
 
     def __repr__(self):
-        return f'Pitch {self.description}' 
+        return f'Blog {self.description}' 
 
 class Comment(db.Model):
     __tablename__='comments'
     
     id = db.Column(db.Integer,primary_key=True)
-    pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'), nullable=False)
+    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable= False)
     description = db.Column(db.Text)
 

@@ -6,7 +6,7 @@
 
 
 ### PROJECT DESCRIPTION
-This is a  Personal Blog website application where you can create and share your opinions and other users can read and comment on them. Additionally, add a feature that displays random quotes to inspire your users. 
+This is a  Personal Blog website application where you can create and share your opinions and other users can read and comment on them. Additionally,has a feature that displays random quotes to inspire your users. 
 
 
 ### :pushpin:PROJECT SETUP INSTRUCTIONS
