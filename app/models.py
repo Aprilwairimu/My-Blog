@@ -65,6 +65,16 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable= False)
     description = db.Column(db.Text)
 
-    
+
     def __repr__(self):
         return f"Comment : id: {self.id} comment: {self.description}"
+
+class Update(db.Model):
+    __tablename__='updates'
+    
+    id = db.Column(db.Integer,primary_key=True)
+    description = db.Column(db.Text)
+
+
+    def __repr__(self):
+        return f"Update : id: {self.id} updates: {self.description}"
