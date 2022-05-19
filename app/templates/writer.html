@@ -3,19 +3,19 @@
 
 
 {% block content %}
-<div class="writer01">
-    <div class="mb-3 writer">
-        <label for="formGroupExampleInput" class="form-label">Title</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter blog title">
-    </div>
-    <div class="mb-3 writer">
-        <label for="formGroupExampleInput2" class="form-label">Blog</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="write a blog">
-    </div>
-    <div>
-        <button type="button" class="btn btn-primary blogbtn">Submit</button>
-    </div>
+<div class="write">
+    <div class="container">
 
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8 logform">
+
+                {{wtf.quick_form(form)}}
+            </div>
+            <div clas="col-md-2"> </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

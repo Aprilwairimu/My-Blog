@@ -3,65 +3,23 @@
 
 
 {% block content %}
-<!-- <div class="displayblog">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Fashion blog</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <button type="button" class="btn btn-danger">Delete<i class="fa-solid fa-trash-can"></i></button>
-            <button type="button" class="btn btn-success">Comment <i class="fa-solid fa-comment"></i></button>
-           
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Food blog</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <button type="button" class="btn btn-danger">Delete<i class="fa-solid fa-trash-can"></i></button>
-            <button type="button" class="btn btn-success">Comment <i class="fa-solid fa-comment"></i></button>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Travel blog</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <button type="button" class="btn btn-danger">Delete<i class="fa-solid fa-trash-can"></i></button>
-            <button type="button" class="btn btn-success">Comment <i class="fa-solid fa-comment"></i></button>
-        </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Health blog</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <button type="button" class="btn btn-danger">Delete<i class="fa-solid fa-trash-can"></i></button>
-            <button type="button" class="btn btn-success">Comment <i class="fa-solid fa-comment"></i></button>
-        </div>
-    </div>
-</div> -->
 
-<div class="blog">
-    <div class="row">
-        <div class="jumbotron">
-            {{wtf.quick_form(form)}}
-            <ul style="list-style: none;">
-                {% for blog in Blogs %}
-                <div class="list-group">
-                    <a href="#">
-                        <div class="list-item">
-                            <p>{{blog.id}}</p>
-                        </div>
-                        <h4>{{ blog.description }}</h4>
-                        <h6> Posted by {{user.username}}.</h6>
-                    </a>
-                </div>
-                {% endfor %}
-            </ul>
+<div class="comtainer-fluid blogs">
+    <ul>
+        {%for blog in blogs%}
+        <div class="card blog" style="width: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">{{blog.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"></h6>
+                <p class="card-text">{{blog.description}}</p>
+                </p>
+                <a href="#" class="card-link"><button type="button" class="btn btn-success">Add Comment</button></a>
+                <a href="#" class="card-link"><button type="button" class="btn btn-danger">
+                        Delete<i class="fa-solid fa-trash-can"></i></button></a>
+            </div>
         </div>
-    </div>
+        {%endfor%}
+    </ul>
 </div>
 
 
