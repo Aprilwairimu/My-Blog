@@ -6,18 +6,18 @@ class Config:
     
     
 class ProdConfig(Config):
-    pass
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
-    # if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-    #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://",1)
+
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://",1)
     
 class TestConfig(Config):
     
     pass
 
 class DevConfig(Config):
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://april:2222@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+   
     DEBUG = True
 
 config_options = {
