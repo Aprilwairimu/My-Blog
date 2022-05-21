@@ -44,6 +44,15 @@ navbarA {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
 }
+.quote{
+    background-color: blueviolet;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+}
+.quotetxt{
+    font-size: 20px;
+    font-weight: bold;
+}
 /* blogs.html */
 .blog{
     background: linear-gradient(180deg, rgba(224, 168, 120, 0.66) 0%, rgba(141, 77, 150, 0.429) 100%);
@@ -55,6 +64,11 @@ navbarA {
     justify-content: space-between;
     background: linear-gradient(180deg, rgba(224, 168, 120, 0.66) 0%, rgba(141, 77, 150, 0.429) 100%);
    
+}
+.blogview{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 /* writer.html */
 .writer{

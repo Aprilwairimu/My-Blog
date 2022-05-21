@@ -22,8 +22,11 @@
             <div class="items">
                 
                 <a class="item" id=" home" href="/"><i class="fa-solid fa-house-chimney fa-2x"></i></a>
-                
+                {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+                {% else %}
                 <a class="item" id=" login" href="{{url_for('auth.login')}}">Login</a>
+                {%endif%}
                 <a class="item" id=" signUp" href="{{url_for('auth.register')}}">sign Up</a>
                 <a class="item" id=" write" href="{{url_for('main.write')}}">write blog</a>
                 <a class="item" id="blogs" href="{{url_for('main.blogs')}}">blogs</a>

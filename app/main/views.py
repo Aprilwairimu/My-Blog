@@ -3,8 +3,7 @@ from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 from ..models import Blog, User,Comment
 from flask.views import View,MethodView
-from .forms import UpdateProfile
-from .forms import BlogForm, CommentForm
+from .forms import BlogForm, CommentForm ,UpdateProfile
 from .. import db
 import requests,json
 
@@ -63,12 +62,6 @@ def new_comment(blog_id):
         all_comments = Comment.query.filter_by(blog_id = blog_id).all()
    
 
-
-    #     return redirect(url_for('.new_comment', blog_id= blog_id))
-
-    # all_comments = Comment.query.filter_by(blog_id = blog_id).all()
-    # return render_template('comments.html', form = form, comment = all_comments, blog = blog )
-
 @main.route('/blogs/new',methods = ['GET','POST'])
 def blogs():
     user=current_user
@@ -88,25 +81,30 @@ def blogs():
     return render_template("blogs.html",form=form ,comment_form=form,blogs=blogs)
 
 
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
 
+    if user is None:
+        abort(404)
 
+    return render_template("profile/profile.html", user = user)
 
-@main.route('/profile',methods = ['GET','POST'])
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
 @login_required
-def profile():
-    # user = User.query.filter_by(username = uname).first()
-    # if user is None:
-    #     abort(404)
+def update_profile(uname):
+    user = User.query.filter_by(username = uname).first()
+    if user is None:
+        abort(404)
 
-    # form = UpdateProfile()
+    form = UpdateProfile()
 
-    # if form.validate_on_submit():
-    #     user.bio = form.bio.data
+    if form.validate_on_submit():
+        user.bio = form.bio.data
 
-    #     db.session.add(user)
-    #     db.session.commit()
+        db.session.add(user)
+        db.session.commit()
 
-    #     return redirect(url_for('.profile',uname=user.username))
+        return redirect(url_for('.profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)
-

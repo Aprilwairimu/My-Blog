@@ -22,14 +22,14 @@ styles%} {{ super() }}
                 <button type="button" class="btn btn-outline-success" align="center"><a href="{{url_for('main.blogs')}}">view blog</a></button>
             </div>
 
-               
-                <div class="row2">
-                    <div class="col-md-12 colum2">
-                        
-                
-                        
+            <div class="row quote">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="quotetxt">quote:Quote of the day<br>{{data.quote}}
+                            </h2>
+                        </div>
                     </div>
-                
                 </div>
 
         </div>
